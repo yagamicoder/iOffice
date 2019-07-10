@@ -8,10 +8,15 @@ import { UserService } from '../../services/user.service'
 })
 export class DirectoryComponent implements OnInit {
   open: boolean = false
+  users: []
 
   constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.userService.findUsers().subscribe(res => {
+      console.log(res)
+      this.users = res as []
+    })
   }
   //Open new user modal
   openNewUserModal = (open: boolean) => this.open = open

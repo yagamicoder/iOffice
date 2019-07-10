@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://demo.iofficeconnect.com/external/api/rest/v2'
+  apiUrl: 'https://demo.iofficeconnect.com/external/api/rest/v2'
 };
 
 /*

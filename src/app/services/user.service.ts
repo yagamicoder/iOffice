@@ -1,29 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import getHttpOptions from '../../utils/getHttpOptions'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  apiUrl: string = environment.apiUrl
+  users: []
 
-  constructor() { }
+  constructor(private http: HttpClient) { 
+    
+  }
 
-  createUser() {
+  createUser(data) {
 
   }
 
-  findUsers(query) {
-    console.log(query)
+  findUsers(query = {}) {
+    const url = `${this.apiUrl}/users`;
+    return this.http.get(url, getHttpOptions({}, new HttpParams().set('limit', '10')))
   }
 
-  getUser() {
-
-  }
-
-  patchUser() {
+  getUser(id) {
 
   }
 
-  removeUser() {
+  patchUser(id, data) {
+
+  }
+
+  removeUser(id) {
 
   }
 }
