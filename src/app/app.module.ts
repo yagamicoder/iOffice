@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HeroComponent } from './hero/hero.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DirectoryComponent } from './components/directory/directory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroComponent,
-    FooterComponent
+    FooterComponent,
+    DirectoryComponent
   ],
   imports: [
     BrowserModule,
