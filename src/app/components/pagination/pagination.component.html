@@ -1,12 +1,12 @@
 <section class="mb-4">
   <div class="row">
     <div class="col-md-6">
-      <button type="button" class="btn btn-secondary btn-lg btn-block"
-        (click)="onStartAtChange(startAt - 10)">Previous</button>
+      <button *ngIf="startAt > 0" type="button" class="btn btn-secondary btn-lg btn-block"
+        (click)="onStartAtChange(startAt - limit)">Previous</button>
     </div>
     <div class="col-md-6">
       <button type="button" class="btn btn-primary btn-lg btn-block"
-        (click)="onStartAtChange(startAt + 10)">Next</button>
+        (click)="onStartAtChange(startAt + limit)">Next</button>
     </div>
   </div>
 </section>
