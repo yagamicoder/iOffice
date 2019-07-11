@@ -1,5 +1,5 @@
 <p>
-  <button type="button" class="btn btn-link" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+  <button type="button" class="btn btn-link p-0" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
     aria-controls="collapseFilters">
     Filters
   </button>
@@ -16,7 +16,7 @@
         <!-- Limit -->
         <div class="form-group">
           <label for="limit">Limit</label>
-          <select class="form-control" id="limit" (change)="onLimitChange($event)">
+          <select class="form-control" id="limit" (change)="onLimitChange($event)" [value]="limit">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -28,8 +28,8 @@
         <!-- end Limit -->
         <!-- Order By -->
         <div class="form-group">
-          <label for="limit">Order By</label>
-          <select class="form-control" id="limit" (change)="onOrderByChange($event)">
+          <label for="orderBy">Order By</label>
+          <select class="form-control" id="orderby" (change)="onOrderByChange($event)" [value]="orderBy">
             <option value="id">Id</option>
             <option value="firstName">First Name</option>
             <option value="lastName">Last Name</option>
@@ -39,8 +39,8 @@
         <!-- end Order By -->
         <!-- Order By -->
         <div class="form-group">
-          <label for="limit">Sort Order</label>
-          <select class="form-control" id="limit" (change)="onOrderByTypeChange($event)">
+          <label for="orderByType">Sort Order</label>
+          <select class="form-control" id="limit" (change)="onOrderByTypeChange($event)" [value]="orderByType">
             <option value="asc">Ascending</option>
             <option value="desc">Descinding</option>
           </select>

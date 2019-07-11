@@ -12,6 +12,7 @@ import { DirectoryComponent } from './components/directory/directory.component';
 import { ListUserItemComponent } from './components/list-user-item/list-user-item.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { SearchFiltersComponent } from './components/search-filters/search-filters.component';
+import { SearchBoxComponent } from './components/search-box/search-box.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchFiltersComponent } from './components/search-filters/search-filte
     DirectoryComponent,
     ListUserItemComponent,
     LoadingComponent,
-    SearchFiltersComponent
+    SearchFiltersComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,

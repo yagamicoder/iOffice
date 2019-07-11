@@ -1,0 +1,9 @@
+<div class="mt-4 mb-4">
+  <div class="input-group mb-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><span class="oi" data-glyph="magnifying-glass"></span></div>
+    </div>
+    <input (keyup)="onSearchChange($event)" type="text" class="form-control search-box" id="inlineFormInputGroup"
+      placeholder="Search For Someone..." [value]="search">
+  </div>
+</div>
