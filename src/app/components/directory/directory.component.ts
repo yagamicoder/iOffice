@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-directory',
@@ -7,21 +8,51 @@ import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 })
 export class DirectoryComponent {
   //Inputs
-  @Input() users: []
-  @Input() loading: boolean
-  @Input() error: boolean
-  @Input() errorMessage: string
-  @Input() search: string
-  @Input() searchUsers: any
-  @Input() fetchUsers: any
+  users: []
+  loading: boolean
+  error: boolean
+  errorMessage: string
+  search: string = ''
+  limit: number = 10
+  startAt: number = 0
+  orderBy: string = 'id'
+  orderByType: string = 'desc'
 
-  ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
-    if(changes.search) {
-      const { currentValue, previousValue } = changes.search
-      if(currentValue !== previousValue) {
-        this.fetchUsers({ search: currentValue })
-      }
-    }
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+    //Fetch users on page load
+    this.fetchUsers()
   }
+
+  //Fetch all users
+  fetchUsers = () => {
+    this.loading = true
+    this.error = false
+    const query = {
+      search: this.search,
+      limit: this.limit,
+      startAt: this.startAt,
+      orderBy: this.orderBy,
+      orderByType: this.orderByType
+    }
+    //HTTP call
+    this.userService.findUsers(query).subscribe(res => {
+      this.users = res as []
+      this.loading = false
+    }, error => {
+      this.error = false
+      this.loading = false
+    })
+  }
+  //Search
+  onSearchChange = ({ target }) => this.search = target.value
+  //Limit
+  onLimitChange = ({ target }) => this.limit = target.value
+  //Start At
+  onStartAtChange = ({ target }) => this.startAt = target.value
+  //Order By
+  onOrderByChange = ({ target }) => this.orderBy = target.value
+  //Order By Type
+  onOrderByTypeChange = ({ target }) => this.orderByType = target.value
 }

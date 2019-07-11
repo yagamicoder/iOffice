@@ -1,22 +1,32 @@
 <section class="container p-5">
   <!-- Search Box -->
   <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-12">
       <div class="mt-4 mb-4">
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text"><span class="oi" data-glyph="magnifying-glass"></span></div>
           </div>
-          <input (keyup)="searchUsers($event)" type="text" class="form-control" id="inlineFormInputGroup"
+          <input (keyup)="onSearchChange($event)" type="text" class="form-control" id="inlineFormInputGroup"
             placeholder="Search For Someone...">
         </div>
       </div>
     </div>
-    <div class="col-md-7">Filters</div>
+  </div>
+  <!-- Filters-->
+  <div class="row">
+    <div class="col-md-12">
+      <app-search-filters [fetchUsers]="fetchUsers" [onLimitChange]="onLimitChange" [onOrderByChange]="onOrderByChange"
+        [onOrderByTypeChange]="onOrderByTypeChange" [limit]="limit" [orderBy]="orderBy" [orderByType]="orderByType"
+        [isCollapsed]="true"></app-search-filters>
+    </div>
   </div>
   <!-- List users-->
-  <div class="row">
-    <div *ngIf="loading" class="text-center">Loading users...</div>
-    <app-list-user-item class='col-md-6' *ngFor="let user of users" [user]="user"></app-list-user-item>
-  </div>
+  <app-loading *ngIf="loading else listusers" loadingMessage="Fetching users..."></app-loading>
+  <ng-template #listusers>
+    <div class="row">
+      <app-list-user-item class='col-md-6' *ngFor="let user of users" [user]="user"></app-list-user-item>
+    </div>
+  </ng-template>
+
 </section>

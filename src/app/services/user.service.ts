@@ -8,11 +8,16 @@ import getHttpOptions from '../../utils/getHttpOptions'
 })
 export class UserService {
   apiUrl: string = environment.apiUrl
-
   constructor(private http: HttpClient) { }
-
-  findUsers(query?: object) {
+  //Fetch all iOffice users
+  findUsers(query?: any) {
     const url = `${this.apiUrl}/users`;
-    return this.http.get(url, getHttpOptions({}, new HttpParams().set('limit', '10').set('search', query.search)))
+    return this.http.get(url, getHttpOptions({}, new HttpParams()
+    .set('limit', query.limit || '10')
+    .set('search', query.search || '')
+    .set('startAt', query.startAt || '0')
+    .set('orderBy', query.orderBy || 'id')
+    .set('orderByType', query.orderByType || 'desc')
+    ))
   }
 }

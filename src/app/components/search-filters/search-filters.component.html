@@ -1,0 +1,52 @@
+<p>
+  <button type="button" class="btn btn-link" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseFilters">
+    Filters
+  </button>
+</p>
+<div class="mb-4">
+  <span class="badge badge-secondary">Display</span>: {{ limit }} |
+  <span class="badge badge-secondary">Sort</span>: {{ orderBy }} |
+  <span class="badge badge-secondary">Sort By</span>: {{ orderByType }}
+</div>
+<div id="collapseFilters" [ngbCollapse]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <!-- Limit -->
+        <div class="form-group">
+          <label for="limit">Limit</label>
+          <select class="form-control" id="limit" (change)="onLimitChange($event)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <!-- end Limit -->
+        <!-- Order By -->
+        <div class="form-group">
+          <label for="limit">Order By</label>
+          <select class="form-control" id="limit" (change)="onOrderByChange($event)">
+            <option value="id">Id</option>
+            <option value="firstName">First Name</option>
+            <option value="lastName">Last Name</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+        <!-- end Order By -->
+        <!-- Order By -->
+        <div class="form-group">
+          <label for="limit">Sort Order</label>
+          <select class="form-control" id="limit" (change)="onOrderByTypeChange($event)">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descinding</option>
+          </select>
+        </div>
+        <!-- end Order By -->
+      </form>
+    </div>
+  </div>
+</div>

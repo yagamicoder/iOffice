@@ -10,6 +10,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DirectoryComponent } from './components/directory/directory.component';
 import { ListUserItemComponent } from './components/list-user-item/list-user-item.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { SearchFiltersComponent } from './components/search-filters/search-filters.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ListUserItemComponent } from './components/list-user-item/list-user-ite
     HeroComponent,
     FooterComponent,
     DirectoryComponent,
-    ListUserItemComponent
+    ListUserItemComponent,
+    LoadingComponent,
+    SearchFiltersComponent
   ],
   imports: [
     BrowserModule,
