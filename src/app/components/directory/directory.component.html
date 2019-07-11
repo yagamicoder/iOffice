@@ -1,15 +1,8 @@
 <section class="container p-5">
-  <!-- Add New User -->
-  <div class="row">
-    <div class="col-md-12 text-right">
-      <button (click)="openNewUserModal()" type="button" class="btn btn-primary"><span class="oi"
-          data-glyph="person"></span> Add New User</button>
-    </div>
-  </div>
   <!-- Search Box -->
   <div class="row">
-    <div class="col-md-6">
-      <div class="col-auto">
+    <div class="col-md-5">
+      <div class="mt-4 mb-4">
         <div class="input-group mb-2">
           <div class="input-group-prepend">
             <div class="input-group-text"><span class="oi" data-glyph="magnifying-glass"></span></div>
@@ -19,10 +12,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">Filters</div>
+    <div class="col-md-7">Filters</div>
   </div>
   <!-- List users-->
   <div class="row">
+    <div *ngIf="loading" class="text-center">Loading users...</div>
     <app-list-user-item class='col-md-6' *ngFor="let user of users" [user]="user"></app-list-user-item>
   </div>
 </section>

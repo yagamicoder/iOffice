@@ -1,0 +1,12 @@
+<div class="card mb-3 list-item">
+  <div class="card-body">
+    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }} <span
+        class="badge badge-primary">{{ user.email }}</span></h5>
+    <p *ngIf="user.phone" class="card-text"><span class="oi" data-glyph="phone"></span> {{ user.phone }}</p>
+    <p *ngIf="user.jobTitle" class="card-text">{{ user.jobTitle | uppercase }}</p>
+    <p class="card-text"><small class="text-muted">Member since {{ user.dateCreated | date: 'MMMM d, yyyy' }}</small></p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted"><a href="/user/{{ user.id }}" class="card-link">View</a></small>
+  </div>
+</div>

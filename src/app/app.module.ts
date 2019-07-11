@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeroComponent } from './components/hero/hero.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DirectoryComponent } from './components/directory/directory.component';
-import { ListUserItemComponent } from './list-users/list-user-item.component';
+import { ListUserItemComponent } from './components/list-user-item/list-user-item.component';
 
 @NgModule({
   declarations: [

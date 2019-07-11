@@ -8,30 +8,11 @@ import getHttpOptions from '../../utils/getHttpOptions'
 })
 export class UserService {
   apiUrl: string = environment.apiUrl
-  users: []
 
-  constructor(private http: HttpClient) { 
-    
-  }
+  constructor(private http: HttpClient) { }
 
-  createUser(data) {
-
-  }
-
-  findUsers(query = {}) {
+  findUsers(query?: object) {
     const url = `${this.apiUrl}/users`;
-    return this.http.get(url, getHttpOptions({}, new HttpParams().set('limit', '10')))
-  }
-
-  getUser(id) {
-
-  }
-
-  patchUser(id, data) {
-
-  }
-
-  removeUser(id) {
-
+    return this.http.get(url, getHttpOptions({}, new HttpParams().set('limit', '10').set('search', query.search)))
   }
 }

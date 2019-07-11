@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service'
+import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.component.html',
   styleUrls: ['./directory.component.scss']
 })
-export class DirectoryComponent implements OnInit {
-  open: boolean = false
-  users: []
+export class DirectoryComponent {
+  //Inputs
+  @Input() users: []
+  @Input() loading: boolean
+  @Input() error: boolean
+  @Input() errorMessage: string
+  @Input() search: string
+  @Input() searchUsers: any
+  @Input() fetchUsers: any
 
-  constructor(private userService:UserService) { }
-
-  ngOnInit() {
-    this.userService.findUsers().subscribe(res => {
-      console.log(res)
-      this.users = res as []
-    })
-  }
-  //Open new user modal
-  openNewUserModal = (open: boolean) => this.open = open
-
-  //Search for users
-  searchUsers({ target }) {
-    const { value } = target
-    this.userService.findUsers(value)
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.prop contains the old and the new value...
+    if(changes.search) {
+      const { currentValue, previousValue } = changes.search
+      if(currentValue !== previousValue) {
+        this.fetchUsers({ search: currentValue })
+      }
+    }
   }
 }
