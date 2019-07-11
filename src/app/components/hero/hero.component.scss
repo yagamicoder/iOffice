@@ -18,6 +18,19 @@
     .oi {
       font-size: 35px;
       color: $gray-100;
+      animation: pointDown .75s ease-in-out infinite;
+      display: inline-block;
     }
+  }
+}
+
+@keyframes pointDown {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(0, -9px) rotate(0deg);
   }
 }

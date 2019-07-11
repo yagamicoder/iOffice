@@ -13,12 +13,15 @@
         [isCollapsed]="true"></app-search-filters>
     </div>
   </div>
+  <!-- Pagination -->
+  <app-pagination [onStartAtChange]="onStartAtChange" [startAt]="startAt" [limit]="limit" [fetchUsers]="fetchUsers">
+  </app-pagination>
   <!-- List users-->
   <app-loading *ngIf="loading else listusers" loadingMessage="Fetching users..."></app-loading>
   <ng-template #listusers>
+    <!-- List items -->
     <div class="row">
       <app-list-user-item class='col-md-6' *ngFor="let user of users" [user]="user"></app-list-user-item>
     </div>
   </ng-template>
-
 </section>

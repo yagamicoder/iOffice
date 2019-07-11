@@ -13,6 +13,7 @@ import { ListUserItemComponent } from './components/list-user-item/list-user-ite
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { SearchFiltersComponent } from './components/search-filters/search-filters.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
     ListUserItemComponent,
     LoadingComponent,
     SearchFiltersComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

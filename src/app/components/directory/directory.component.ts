@@ -50,7 +50,9 @@ export class DirectoryComponent {
   //Limit
   onLimitChange = ({ target }) => this.limit = target.value
   //Start At
-  onStartAtChange = ({ target }) => this.startAt = target.value
+  onStartAtChange = (value) => {
+    this.startAt = value
+  }
   //Order By
   onOrderByChange = ({ target }) => this.orderBy = target.value
   //Order By Type
