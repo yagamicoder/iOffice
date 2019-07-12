@@ -16,6 +16,7 @@ export class SearchFiltersComponent {
   @Input() onOrderByChange: any
   @Input() onOrderByTypeChange: any
   @Input() fetchUsers: any
+  @Input() clearFilters: any
 
   constructor() { }
 

@@ -45,18 +45,24 @@ export class DirectoryComponent {
       this.error = false
       this.loading = false
     })
-  }, 250)
+  }, 500)
 
   //Search
   onSearchChange = ({ target }) => this.search = target.value
   //Limit
   onLimitChange = ({ target }) => this.limit = target.value
   //Start At
-  onStartAtChange = (value) => {
-    this.startAt = value
-  }
+  onStartAtChange = (value) => this.startAt = value
   //Order By
   onOrderByChange = ({ target }) => this.orderBy = target.value
   //Order By Type
   onOrderByTypeChange = ({ target }) => this.orderByType = target.value
+  //Clear all filters
+  clearFilters = () => {
+    this.search = ''
+    this.limit = 10
+    this.startAt = 0
+    this.orderBy = 'id'
+    this.orderByType = 'desc'
+  }
 }

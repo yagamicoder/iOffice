@@ -1,7 +1,11 @@
 <p>
   <button type="button" class="btn btn-link p-0" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
     aria-controls="collapseFilters">
-    Filters
+    <span *ngIf="isCollapsed">Show Filters</span>
+    <span *ngIf="!isCollapsed">Hide Filters</span>
+  </button>
+  <button type="button" class="btn btn-link p-0 ml-2" (click)="clearFilters()">
+    Clear Filters
   </button>
 </p>
 <div class="mb-4">
@@ -9,13 +13,14 @@
   <span class="badge badge-secondary">Sort</span>: {{ orderBy }} |
   <span class="badge badge-secondary">Sort By</span>: {{ orderByType }}
 </div>
-<div id="collapseFilters" [ngbCollapse]="isCollapsed">
-  <div class="card">
+<div id="collapseFilters" [ngbCollapse]="isCollapsed" class="mb-5">
+  <div class="card text-white bg-secondary">
     <div class="card-body">
-      <form>
+      <p>Please select your filters.</p>
+      <form class="form-inline">
         <!-- Limit -->
-        <div class="form-group">
-          <label for="limit">Limit</label>
+        <div class="form-group mb-2 mr-sm-2">
+          <label for="limit" class="mb-2 mr-sm-2">Limit</label>
           <select class="form-control" id="limit" (change)="onLimitChange($event)" [value]="limit">
             <option value="5">5</option>
             <option value="10">10</option>
@@ -27,8 +32,8 @@
         </div>
         <!-- end Limit -->
         <!-- Order By -->
-        <div class="form-group">
-          <label for="orderBy">Order By</label>
+        <div class="form-group mb-2 mr-sm-2">
+          <label for="orderBy" class="mb-2 mr-sm-2">Order By</label>
           <select class="form-control" id="orderby" (change)="onOrderByChange($event)" [value]="orderBy">
             <option value="id">Id</option>
             <option value="firstName">First Name</option>
@@ -39,10 +44,10 @@
         <!-- end Order By -->
         <!-- Order By -->
         <div class="form-group">
-          <label for="orderByType">Sort Order</label>
-          <select class="form-control" id="limit" (change)="onOrderByTypeChange($event)" [value]="orderByType">
+          <label for="orderByType" class="mb-2 mr-sm-2">Sort Order</label>
+          <select class="form-control mb-2 mr-sm-2" id="limit" (change)="onOrderByTypeChange($event)" [value]="orderByType">
             <option value="asc">Ascending</option>
-            <option value="desc">Descinding</option>
+            <option value="desc">Descending</option>
           </select>
         </div>
         <!-- end Order By -->
