@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -8,6 +8,9 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  @Input() title: string
+  @Input() subtitle: string
+
   loading: boolean = false
   error: boolean = false
   user: object = {}
