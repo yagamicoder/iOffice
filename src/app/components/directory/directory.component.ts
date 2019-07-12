@@ -50,9 +50,9 @@ export class DirectoryComponent {
   //Search
   onSearchChange = ({ target }) => this.search = target.value
   //Limit
-  onLimitChange = ({ target }) => this.limit = target.value
+  onLimitChange = ({ target }) => this.limit = parseInt(target.value, 10)
   //Start At
-  onStartAtChange = (value) => this.startAt = value
+  onStartAtChange = (value) => this.startAt = parseInt(value, 10)
   //Order By
   onOrderByChange = ({ target }) => this.orderBy = target.value
   //Order By Type

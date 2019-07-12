@@ -14,6 +14,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { SearchFiltersComponent } from './components/search-filters/search-filters.component';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     LoadingComponent,
     SearchFiltersComponent,
     SearchBoxComponent,
-    PaginationComponent
+    PaginationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
