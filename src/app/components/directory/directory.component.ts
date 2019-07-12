@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { debounce } from 'lodash'
 
 @Component({
   selector: 'app-directory',
@@ -26,7 +27,7 @@ export class DirectoryComponent {
   }
 
   //Fetch all users
-  fetchUsers = () => {
+  fetchUsers = debounce(() => {
     this.loading = true
     this.error = false
     const query = {
@@ -44,7 +45,8 @@ export class DirectoryComponent {
       this.error = false
       this.loading = false
     })
-  }
+  }, 250)
+
   //Search
   onSearchChange = ({ target }) => this.search = target.value
   //Limit
