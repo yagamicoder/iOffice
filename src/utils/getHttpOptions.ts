@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http'
 
-const getHttpOptions = (headers = {}, params) => {
+const getHttpOptions = (headers?:object, params?:any) => {
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

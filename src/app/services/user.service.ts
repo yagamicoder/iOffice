@@ -10,7 +10,7 @@ export class UserService {
   apiUrl: string = environment.apiUrl
   constructor(private http: HttpClient) { }
   //Fetch all iOffice users
-  findUsers(query?: any) {
+  findUsers = (query?: any) => {
     const url = `${this.apiUrl}/users`;
     return this.http.get(url, getHttpOptions({}, new HttpParams()
     .set('limit', query.limit || '10')
@@ -20,4 +20,6 @@ export class UserService {
     .set('orderByType', query.orderByType || 'desc')
     ))
   }
+   //Fetch an iOffice user
+   findUser = (id: number) => this.http.get(`${this.apiUrl}/users/${id}`, getHttpOptions())
 }

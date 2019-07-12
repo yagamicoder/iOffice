@@ -1,17 +1,21 @@
-<section id="profile" class="m-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>John Doe</h1>
-        <ul class="list-group">
-          <li class="list-group-item">First Name: Cras justo odio</li>
-          <li class="list-group-item">Last Name: Cras justo odio</li>
-          <li class="list-group-item">Email: johndoe@gmail.com</li>
-          <li class="list-group-item">First Name: Cras justo odio</li>
-          <li class="list-group-item">First Name: Cras justo odio</li>
-          <li class="list-group-item">First Name: Cras justo odio</li>
-        </ul>
+<app-loading *ngIf="loading else userprofile" loadingMessage="Fetching user..."></app-loading>
+<ng-template #userprofile>
+  <section id="profile" class="m-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+          <ul class="list-group">
+            <li class="list-group-item">First Name: <span class="badge badge-primary">{{ user.firstName }}</span></li>
+            <li class="list-group-item">Last Name: <span class="badge badge-primary">{{ user.lastName }}</span></li>
+            <li class="list-group-item">Email: <span class="badge badge-primary">{{ user.email }}</span></li>
+            <li class="list-group-item">Company: <span class="badge badge-primary">{{ user.company }}</span></li>
+            <li class="list-group-item">Username: <span class="badge badge-primary">{{ user.userName }}</span></li>
+            <li class="list-group-item">Member Since: <span
+                class="badge badge-primary">{{ user.dateCreated | date: 'MMMM d, yyyy' }}</span></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</ng-template>
